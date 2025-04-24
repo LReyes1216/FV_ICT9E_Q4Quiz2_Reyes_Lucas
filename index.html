@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;1,200&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+	<title>Q4Quiz2</title>
+	<style>
+		 body{
+			font: arial;
+		}
+		
+			nav {
+				background-color: cadetblue;
+				font-family: "Bebas Neue";
+			}
+		.row{
+	
+			display: flex;
+		}
+	</style>
+</head>
+<nav class="navbar navbar-expand-md navbar-dark fixed top">
+<div class="container-fluid">
+	<a class="navbar-brand" href="index.html"></a>
+
+	<div class="collapse navbar-collapse">
+		<ul class="navbar-nav me-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="index.html">Pastee | GRADE ANALYZER</a>
+			</li>
+		</ul>
+
+		<form class="d-flex">
+			<input class="form-control" type="text" style="font-family: Nunito;" placeholder="Search...">
+			<button class="btn btn-primary" type="button"><span style= "color: white; font-family: Nunito;">Search</span></button>
+		</form>
+	</div>
+</div>
+</nav>
+<body>
+	<h1 style="text-align: center; padding-top: 30px;">Grade Analyzer</h1>
+<details style="padding: 20px; text-align: center;">
+	<summary>Instructions:</summary>
+	<p> Input your grades in the following subjects. Then, click the button to calculate your rating. </p>
+</details>
+<br>
+
+<form>
+	<center>
+<div class="row">
+	<div class= "col-md-4">
+		<img src="https://i.pinimg.com/736x/73/ff/90/73ff907a57fbcea1f9f6bb8caad4de1d.jpg" alt="Science" width="250px"  style="padding-right: 50p">
+		<br><br>
+			<input type="number" class="form-control" placeholder="Input your grade here..." id="Science">
+	</div>
+	<div class= "col-md-4">
+		<img src="https://i.pinimg.com/736x/80/56/1e/80561e8c9748a629f2d75ac4446d45da.jpg" alt="Math" style=" width: 250px; height: 333px;">
+		<br><br>
+			<input type="number" class="form-control" placeholder="Input your grade here..." id="Mathematics">
+	</div>
+	<div class= "col-md-4">
+		<img src="https://i.pinimg.com/736x/55/c1/86/55c18622f85429b60f209efef4812613.jpg" alt="Social Science" length ="500px" width="250px" height="333px">
+		<br><br>
+			<input type="number" class="form-control" placeholder="Input your grade here..." id="SocialStudies">
+			<br><br>
+	</div>
+
+	<center>
+	<button type="button" class="btn btn-success" onclick="analyze()" style="width: 250px; font-size: 20px;">Calculate</button>
+	</center>
+</div>
+<center>
+</form>
+
+	<br><br>
+	<p style="color: gray; text-align: center;"><em> Note: Grading Criteria and Equivalents may vary depending on your school or district.</em></p>
+	<br>
+	<p style="border-top: grey solid 1px; text-align: center; color: grey;"> Lucas T. Reyes</p>
+	<a href="https://docs.google.com/document/d/1iXZ0xkIsTdw837RaiPFs_zEu5tjJUHGMMuieGDYGzu8/edit?usp=sharing">Sources</a>
+
+<script>
+	function analyze() {
+		// these are the variables and formula
+		var sci = Number(document.getElementById("Science").value);
+		var math = Number(document.getElementById("Mathematics").value);
+		var social = Number(document.getElementById("SocialStudies").value);
+		let result1 = sci + math + social;
+		let result2 = result1 / 3;
+		let final = Math.abs(result2).toFixed(2);
+		// this is how we show your results
+		switch(true){
+	case (final >= 70 && final<= 74.99):
+		alert("Your average is "+ final + " - Poor");
+		break;
+	case (final >= 75 && final<= 79.99):
+		alert("Your average is "+ final + " - Needs Improvement");
+		break;
+	case (final >= 80 && final<= 86.99):
+		alert("Your average is "+ final + " - Satisfactory");
+		break;
+	case (final >= 87 && final<= 93.99):
+		alert("Your average is "+ final + " - Above Satisfactory");
+		break;
+	case (final >= 94 && final<= 100):
+		alert("Your average is "+ final + " - Excellent");
+		break;
+	default:
+		alert("Error");
+	}
+
+	}
+</script>
+</body>
+</html>
